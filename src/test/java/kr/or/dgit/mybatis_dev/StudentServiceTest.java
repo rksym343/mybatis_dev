@@ -1,6 +1,8 @@
 package kr.or.dgit.mybatis_dev;
 
+import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.List;
 
 import org.junit.After;
@@ -132,8 +134,9 @@ public class StudentServiceTest {
 
 	@Test
 	public void lTestInsertStudentAnnotation() {
-		Student std = new Student(5, "Douglas", "douglas22@gmail.com", new Date(1990 - 1900, 8 - 1, 15),
-				new PhoneNumber("789-456-1234"));
+		Calendar cal = GregorianCalendar.getInstance();
+		cal.set(1990, 7, 15);
+		Student std = new Student(5, "Douglas", "douglas22@gmail.com", cal.getTime(), new PhoneNumber("789-456-1234"));
 		int res = studentService.insertStudentAnnotation(std);
 		Assert.assertEquals(1, res);
 	}
