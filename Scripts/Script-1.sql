@@ -84,3 +84,7 @@ INSERT INTO COURSE_ENROLLMENT (COURSE_ID,STUD_ID) VALUES
  (1,1),
  (1,2),
  (2,2);
+
+SELECT STUD_ID, NAME, EMAIL, PHONE, DOB FROM mybatis_dev.students where stud_id=1;
+
+ 

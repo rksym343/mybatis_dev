@@ -2,17 +2,17 @@
 <!DOCTYPE configuration  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"  
 "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
+
 	<properties resource="application.properties" />
+	<settings>
+		<setting name="mapUnderscoreToCamelCase" value="true"/> <!-- db의 언더바 형식 java의 캄멜식으로 변환 -->
+	</settings>
 	<typeAliases>
-		<!-- <typeAlias type="kr.or.dgit.mybatis_study.dto.Student" alias="Student"/> 
-			<typeAlias type="kr.or.dgit.mybatis_study.dto.Department" alias="Department"/> -->
-		<package name="kr.or.dgit.mybatis_dev.dto" />
+		<package name="kr.or.dgit.mybatis_dev.dto"/>
 	</typeAliases>
-
 	<typeHandlers>
-		<package name="kr.or.dgit.mybatis_dev.typehandlers" />
+		<package name="kr.or.dgit.mybatis_dev.typehandlers"/>
 	</typeHandlers>
-
 	<environments default="development">
 		<environment id="development">
 			<transactionManager type="JDBC" />
@@ -27,5 +27,6 @@
 	<mappers>
 		<!-- <mapper resource="kr/or/dgit/mybatis_study/mappers/StudentMapper.xml" /> -->
 		<package name="kr.or.dgit.mybatis_dev.dao"/>
+		<!-- 패키지를 사용하려면 main의 패키지명과resources의 패키지명을 동일하게 설정. 아래 파일 이름도 동일하게 설정하면 가능 -->
 	</mappers>
 </configuration>
