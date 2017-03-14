@@ -5,6 +5,8 @@ import java.util.Collections;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
 
 import org.junit.After;
 import org.junit.AfterClass;
@@ -46,8 +48,6 @@ public class StudentServiceTest {
 		System.out.println("tearDown()");
 	}
 
-	
-
 	@Test
 	public void aTestSelectStudentByNoForResultMap() {
 		Student std = new Student();
@@ -62,6 +62,46 @@ public class StudentServiceTest {
 		List<Student> emptyLists = Collections.emptyList();
 		Assert.assertNotEquals(emptyLists, lists);
 
+	}
+
+	@Test
+	public void cTestSelectStudentByNoForHashMap() {
+		Student std = new Student();
+		std.setStudId(1);
+		Map<String, Object> selectStudent = studentService.selectStudentByNoForHashMap(std);
+		for (Entry<String, Object> e : selectStudent.entrySet()) {
+			System.out.printf("key : %s -> value : %s %n", e.getKey(), e.getValue());
+		}
+		Assert.assertNotNull(selectStudent);
+	}
+
+	@Test
+	public void dTestSelectStudentByAllForHashMap() {
+		List<Map<String, Object>> lists = studentService.selectStudentByAllForHashMap();
+		List<Map<String, Object>> emptyLists = Collections.emptyList();
+		for (Map<String, Object> map : lists) {
+			for (Entry<String, Object> e : map.entrySet()) {
+				System.out.printf("key : %s -> value : %s %n", e.getKey(), e.getValue());
+			}
+		}
+		Assert.assertNotEquals(emptyLists, lists);
+
+	}
+	
+	@Test
+	public void eTestSelectStudentByNoWithAddress() {
+		Student std = new Student();
+		std.setStudId(1);
+		Student selectStudent = studentService.selectStudentByNoWithAddress(std);
+		Assert.assertNotNull(selectStudent);
+	}
+	
+	@Test
+	public void fTestSelectStudentByNoAssociation() {
+		Student std = new Student();
+		std.setStudId(1);
+		Student selectStudent = studentService.selectStudentByNoAssociation(std);
+		Assert.assertNotNull(selectStudent);
 	}
 
 }

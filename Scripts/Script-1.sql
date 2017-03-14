@@ -87,4 +87,6 @@ INSERT INTO COURSE_ENROLLMENT (COURSE_ID,STUD_ID) VALUES
 
 SELECT STUD_ID, NAME, EMAIL, PHONE, DOB FROM mybatis_dev.students where stud_id=1;
 
+select STUD_ID, NAME, EMAIL, PHONE, DOB, a.ADDR_ID, street, city, state, zip, country from students s left join addresses a on s.ADDR_ID=a.addr_id;
+
  
