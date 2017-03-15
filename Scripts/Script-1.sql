@@ -89,4 +89,33 @@ SELECT STUD_ID, NAME, EMAIL, PHONE, DOB FROM mybatis_dev.students where stud_id=
 
 select STUD_ID, NAME, EMAIL, PHONE, DOB, a.ADDR_ID, street, city, state, zip, country from students s left join addresses a on s.ADDR_ID=a.addr_id;
 
+
+select t.tutor_id, t.name as tutor_name, email, c.course_id, c.name, description, start_date, end_date 
+		from tutors t left outer join addresses a on t.addr_id = a.addr_id 
+			left outer join courses c on t.tutor_id=c.tutor_id
+			where t.tutor_id = 1;
+
+select *
+from students;
+
+select * 
+from addresses;
+
+select *
+from students s right join addresses a on s.ADDR_ID=a.ADDR_ID;
+
+select *
+from addresses a left join students s on a.ADDR_ID = s.ADDR_ID;
+
+select *
+from addresses a, students s
+where a.ADDR_ID = s.ADDR_ID;
+
+select t.tutor_id, t.name as tutor_name, email, c.course_id, c.name, description, start_date, end_date 
+from tutors t left outer join courses c on t.tutor_id=c.tutor_id;
+
+		
+select t.tutor_id, t.name as tutor_name, email, c.course_id, c.name, description, start_date, end_date 
+		from tutors t right outer join courses c on t.tutor_id=c.tutor_id;
+
  
