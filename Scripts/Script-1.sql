@@ -117,5 +117,19 @@ from tutors t left outer join courses c on t.tutor_id=c.tutor_id;
 		
 select t.tutor_id, t.name as tutor_name, email, c.course_id, c.name, description, start_date, end_date 
 		from tutors t right outer join courses c on t.tutor_id=c.tutor_id;
+		
+select * from courses 
+where TUTOR_ID = 1 
+and name like '%java%' 
+and START_DATE >=  '2013-03-01' 
+and END_DATE <= ' 2013-05-01';
+
+select * from courses 
+where TUTOR_ID=1 or TUTOR_ID=2;
+
+select * from courses 
+where TUTOR_ID in( 1, 2);
+
+
 
  

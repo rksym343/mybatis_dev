@@ -48,7 +48,7 @@ public class StudentServiceTest {
 		System.out.println("tearDown()");
 	}
 
-	@Test
+/*	@Test
 	public void aTestSelectStudentByNoForResultMap() {
 		Student std = new Student();
 		std.setStudId(1);
@@ -102,6 +102,6 @@ public class StudentServiceTest {
 		std.setStudId(1);
 		Student selectStudent = studentService.selectStudentByNoAssociation(std);
 		Assert.assertNotNull(selectStudent);
-	}
+	}*/
 
 }

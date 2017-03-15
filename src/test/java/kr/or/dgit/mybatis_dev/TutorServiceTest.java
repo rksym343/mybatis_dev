@@ -39,8 +39,8 @@ public class TutorServiceTest {
 		System.out.println("tearDown()");
 	}
 
-	
-	@Test
+	///////////////////////////////
+/*	@Test
 	public void aTestFindTutorById() {
 		Tutor tt = new Tutor();
 		tt.setTutorId(1);
@@ -48,5 +48,5 @@ public class TutorServiceTest {
 		Assert.assertNotNull(selectTutor);
 	}
 	
-	
+	*/
 }
