@@ -13,4 +13,5 @@ public interface CourseMapper {
 	List<Course> searchTrimCourses(Map<String, Object> param);
 	List<Course> searchForeachCourses(Map<String, Object> param);
 	int updateSetCourse(Course course);
+	int insertCourse(Course course);
 }

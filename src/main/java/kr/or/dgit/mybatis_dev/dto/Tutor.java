@@ -8,9 +8,8 @@ public class Tutor {
 	private String email;
 	private Address address;
 	private List<Course> courses;
+	private Gender gender;
 
-	
-	
 	public Tutor() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -28,6 +27,14 @@ public class Tutor {
 		this.email = email;
 		this.address = address;
 		this.courses = courses;
+	}
+
+	public Gender getGender() {
+		return gender;
+	}
+
+	public void setGender(Gender gender) {
+		this.gender = gender;
 	}
 
 	public int getTutorId() {

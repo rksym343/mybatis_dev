@@ -53,4 +53,10 @@ public class CourseService {
 			return courseMapper.updateSetCourse(course);
 		}
 	}
+	public int insertCourse(Course course) {
+		try(SqlSession sqlSession = MybatisSqlSessionFactory.openSession()){
+			CourseMapper courseMapper = new CourseMapperImpl(sqlSession);
+			return courseMapper.insertCourse(course);
+		}
+	}
 }

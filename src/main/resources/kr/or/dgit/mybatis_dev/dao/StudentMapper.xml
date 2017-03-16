@@ -41,14 +41,18 @@
 		<result property="address.country" column="country" />
 	</resultMap>
 
-	<resultMap type="Student" id="StudentResultAssociation" extends="StudentResult">
-		<association property="address" resultMap="kr.or.dgit.mybatis_dev.dao.AddressMapper.AddressResult"></association>
+	<resultMap type="Student" id="StudentResultAssociation"
+		extends="StudentResult">
+		<association property="address"
+			resultMap="kr.or.dgit.mybatis_dev.dao.AddressMapper.AddressResult"></association>
 	</resultMap>
 
 
-	<select id="selectStudentByNoAssociation" parameterType="Student" resultMap="StudentResultAssociation">
+	<select id="selectStudentByNoAssociation" parameterType="Student"
+		resultMap="StudentResultAssociation">
 		select STUD_ID, NAME, EMAIL, PHONE, DOB, a.ADDR_ID, street,
-		city, state, zip, country from students s left join addresses a on
+		city,
+		state, zip, country from students s left join addresses a on
 		s.ADDR_ID=a.addr_id
 		<include refid="whereSql" />
 	</select>
@@ -56,7 +60,8 @@
 	<select id="selectStudentByNoWithAddress" parameterType="Student"
 		resultMap="StudentResultExtends">
 		select STUD_ID, NAME, EMAIL, PHONE, DOB, a.ADDR_ID, street,
-		city, state, zip, country from students s left join addresses a on
+		city,
+		state, zip, country from students s left join addresses a on
 		s.ADDR_ID=a.addr_id
 		<include refid="whereSql" />
 	</select>
@@ -84,7 +89,21 @@
 		<include refid="selectSql" />
 	</select>
 
+	<insert id="insertStudent" parameterType="Student">
+		INSERT INTO
+		mybatis_dev.students (STUD_ID, NAME, EMAIL, PHONE, DOB, gender)
+		VALUES(#{studId}, #{name}, #{email}, #{phone}, #{dob}, #{gender});
+	</insert>
 
+	<update id="updateStudent" parameterType="Student">
+		<include refid="updateSql" />
+		<include refid="whereSql" />
+	</update>
+
+	<delete id="deleteStudent" parameterType="Student">
+		<include refid="deleteSql" />
+		<include refid="whereSql" />
+	</delete>
 </mapper>
 
 	

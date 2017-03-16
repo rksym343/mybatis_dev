@@ -22,6 +22,9 @@ CREATE TABLE STUDENTS (
 );
 
 
+Alter Table mybatis_dev.students Add gender varchar(10) NULL;
+
+
 CREATE TABLE TUTORS (
   TUTOR_ID INT(11) NOT NULL AUTO_INCREMENT,
   NAME VARCHAR(50) NOT NULL,
@@ -34,6 +37,8 @@ CREATE TABLE TUTORS (
   PRIMARY KEY (TUTOR_ID),
   CONSTRAINT FK_TUTORS_ADDR FOREIGN KEY (ADDR_ID)   REFERENCES ADDRESSES (ADDR_ID)  
 );
+
+ALTER TABLE mybatis_dev.tutors ADD gender varchar(10) NULL ;
 
 CREATE TABLE COURSES (
   COURSE_ID INT(11) NOT NULL AUTO_INCREMENT,
@@ -130,6 +135,11 @@ where TUTOR_ID=1 or TUTOR_ID=2;
 select * from courses 
 where TUTOR_ID in( 1, 2);
 
+
+select t.tutor_id, t.name as tutor_name, email, c.course_id, c.name, description, start_date, end_date 
+		from tutors t left outer join addresses a on t.addr_id = a.addr_id 
+			right outer join courses c on t.tutor_id=c.tutor_id
+		where t.tutor_id = 1;
 
 
  

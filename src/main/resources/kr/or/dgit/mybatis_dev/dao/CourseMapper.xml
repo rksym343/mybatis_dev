@@ -99,12 +99,20 @@
 		update Courses
 		<set>
 			<if test="name != null">name=#{name},</if>
-			<if test="DESCRIPTION != null">DESCRIPTION=#{description},</if>
-			<if test="START_DATE != null">START_DATE=#{startDate},</if>
-			<if test="END_DATE != null">END_DATE=#{endDate},</if>
-			<if test="TUTOR_ID != null">TUTOR_ID=#{namtutorIde},</if>
+			<if test="description != null">DESCRIPTION=#{description},</if>
+			<if test="startDate != null">START_DATE=#{startDate},</if>
+			<if test="endDate != null">END_DATE=#{endDate},</if>
+			<if test="tutorId != null">TUTOR_ID=#{tutorId},</if>
 		</set>
 		WHERE COURSE_ID=#{courseId};
 	</update>
+
+	<insert id="insertCourse" parameterType="Course">
+		INSERT INTO
+		mybatis_dev.courses (COURSE_ID, NAME, DESCRIPTION, START_DATE,
+		END_DATE, TUTOR_ID)
+		VALUES(#{courseId},#{name},#{description},#{startDate},#{endDate},#{tutorId});
+
+	</insert>
 
 </mapper>

@@ -60,4 +60,12 @@ public class CourseMapperImpl implements CourseMapper {
 		sqlSession.commit();
 		return res;
 	}
+
+	@Override
+	public int insertCourse(Course course) {
+		log.debug("insertCourse()");
+		int res = sqlSession.insert(namespace+ ".insertCourse", course);
+		sqlSession.commit();
+		return res;
+	}
 }

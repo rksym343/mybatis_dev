@@ -17,6 +17,8 @@ import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
 
+import kr.or.dgit.mybatis_dev.dto.Address;
+import kr.or.dgit.mybatis_dev.dto.Gender;
 import kr.or.dgit.mybatis_dev.dto.PhoneNumber;
 import kr.or.dgit.mybatis_dev.dto.Student;
 import kr.or.dgit.mybatis_dev.services.StudentService;
@@ -103,5 +105,28 @@ public class StudentServiceTest {
 		Student selectStudent = studentService.selectStudentByNoAssociation(std);
 		Assert.assertNotNull(selectStudent);
 	}*/
+	
+	@Test
+	public void gTestInsertStudent() {
+		Student std = new Student(3, "학생1", "sdfsf@dsfs.sdf", new Date(), new PhoneNumber("010-0101-0101"), Gender.FEMALE);
+		int res = studentService.insertStudent(std);
+		Assert.assertSame(1, res);
+	}
+	
+	
+	
+	@Test
+	public void hTestUpdateStudent() {
+		Student std = new Student(3, "학생수정수정", "sdfsf@dsfs.sdf", new Date(), new PhoneNumber("010-0101-0101"), Gender.MALE);
+		int res = studentService.updateStudent(std);
+		Assert.assertSame(1, res);
+	}
 
+	@Test
+	public void iTestDeleteStudent() {
+		Student std = new Student();
+		std.setStudId(3);
+		int res = studentService.deleteStudent(std);
+		Assert.assertSame(1, res);
+	}
 }

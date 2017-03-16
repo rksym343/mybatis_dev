@@ -55,6 +55,30 @@ public class Address {
 	public void setCountry(String country) {
 		this.country = country;
 	}
+	
+	
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + addrId;
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Address other = (Address) obj;
+		if (addrId != other.addrId)
+			return false;
+		return true;
+	}
 
 	@Override
 	public String toString() {
