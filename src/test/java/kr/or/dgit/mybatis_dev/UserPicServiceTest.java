@@ -3,8 +3,10 @@ package kr.or.dgit.mybatis_dev;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.OutputStream;
 
 import org.junit.After;
 import org.junit.AfterClass;
@@ -46,7 +48,7 @@ public class UserPicServiceTest {
 	}
 
 	///////////////////////////////
-	@Test
+	/*@Test
 	public void aTestInsertUserPic() {
 		byte[] pic = null;
 		// System.getProperty("user.dir")D:\workspace_mybatis\mybatis_dev까지 나옴
@@ -65,11 +67,26 @@ public class UserPicServiceTest {
 		UserPic userPic = new UserPic(1, "전지현", pic, "인어공주 전지현");
 		int res = userPicService.insertUserPic(userPic);
 		Assert.assertEquals(1, res);
-	}
+	}*/
 	
 	
 	@Test
 	public void bTestSelectUserPicById() {
+		UserPic userPic = userPicService.selectUserPicById(1);
+		byte[] pic = userPic.getPic();
+		File file = new File(System.getProperty("user.dir")+"\\Download\\전지현.jpg");
+		try (OutputStream os = new FileOutputStream(file);){
+			os.write(pic);
+			os.flush();
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		
+		Assert.assertNotNull(file);
 		
 	}
 }
