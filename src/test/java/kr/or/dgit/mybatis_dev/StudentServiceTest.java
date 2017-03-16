@@ -106,7 +106,7 @@ public class StudentServiceTest {
 		Assert.assertNotNull(selectStudent);
 	}*/
 	
-	@Test
+	/*@Test
 	public void gTestInsertStudent() {
 		Student std = new Student(3, "학생1", "sdfsf@dsfs.sdf", new Date(), new PhoneNumber("010-0101-0101"), Gender.FEMALE);
 		int res = studentService.insertStudent(std);
@@ -128,5 +128,5 @@ public class StudentServiceTest {
 		std.setStudId(3);
 		int res = studentService.deleteStudent(std);
 		Assert.assertSame(1, res);
-	}
+	}*/
 }

@@ -41,13 +41,13 @@ public class TutorServiceTest {
 	}
 
 	///////////////////////////////
-	@Test
+/*	@Test
 	public void aTestFindTutorById() {
 		Tutor tt = new Tutor();
 		tt.setTutorId(1);
 		Tutor selectTutor = tutorService.findTutorById(tt);
 		Assert.assertNotNull(selectTutor);
-	}
+	}*/
 	
 	
 	/*@Test

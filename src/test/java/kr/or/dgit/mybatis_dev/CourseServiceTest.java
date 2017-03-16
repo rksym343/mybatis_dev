@@ -149,7 +149,7 @@ public class CourseServiceTest {
 	 * 
 	 * }
 	 */
-
+/*
 	@Test
 	public void fTestUpdateSetCourse() {
 		Course course = new Course(3, "수업1", "설명2131213213212331", new Date(2017, 1, 1), new Date(2017, 2, 15), 3);
@@ -163,5 +163,5 @@ public class CourseServiceTest {
 		Course course = new Course(4, "수업2", "설명2131sdf12331", new Date(2017, 1, 1), new Date(2017, 2, 15), 3);
 		int res = courseService.insertCourse(course);
 		Assert.assertEquals(1, res);
-	}
+	}*/
 }
