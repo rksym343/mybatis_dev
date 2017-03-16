@@ -141,5 +141,12 @@ select t.tutor_id, t.name as tutor_name, email, c.course_id, c.name, description
 			right outer join courses c on t.tutor_id=c.tutor_id
 		where t.tutor_id = 1;
 
+create table user_pics(
+	id int(11) not null auto_increment,
+	name varchar(50) default null,
+	pic blob,
+	bio longtext,
+	primary key(id)
+);
 
  

@@ -17,7 +17,6 @@ public class CourseMapperImpl implements CourseMapper {
 	private String namespace = "kr.or.dgit.mybatis_dev.dao.CourseMapper";
 	private SqlSession sqlSession;
 
-	
 	public CourseMapperImpl(SqlSession sqlSession) {
 		this.sqlSession = sqlSession;
 	}
@@ -56,16 +55,12 @@ public class CourseMapperImpl implements CourseMapper {
 	@Override
 	public int updateSetCourse(Course course) {
 		log.debug("updateSetCourse()");
-		int res = sqlSession.update(namespace+ ".updateSetCourse", course);
-		sqlSession.commit();
-		return res;
+		return sqlSession.update(namespace + ".updateSetCourse", course);
 	}
 
 	@Override
 	public int insertCourse(Course course) {
 		log.debug("insertCourse()");
-		int res = sqlSession.insert(namespace+ ".insertCourse", course);
-		sqlSession.commit();
-		return res;
+		return sqlSession.insert(namespace + ".insertCourse", course);
 	}
 }
