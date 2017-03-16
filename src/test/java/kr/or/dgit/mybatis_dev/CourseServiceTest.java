@@ -152,7 +152,7 @@ public class CourseServiceTest {
 
 	@Test
 	public void fTestUpdateSetCourse() {
-		Course course = new Course(3, "수업1", "설명1", new Date(2017, 1, 1), new Date(2017, 2, 15), 3);
+		Course course = new Course(3, "수업1", "설명2131213213212331", new Date(2017, 1, 1), new Date(2017, 2, 15), 3);
 		int res = courseService.updateSetCourse(course);
 		Assert.assertSame(1, res);
 	}
