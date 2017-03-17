@@ -57,6 +57,8 @@ public class UserPicServiceTest {
 			// try() 안에 넣어서 자동 close 하는 건 1.8부터 된다. 1.6, 1.7일 경우 안 되므로 finally 해서 close()해줘야 함.
 			pic = new byte[is.available()];
 			is.read(pic);
+			// is.read(pic)을 반복문 돌림
+			// 반복문 종료는 is.read가 파일 끝에 도달하면 -1을 반환함. is.read(pic) > -1을 조건
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -86,7 +88,7 @@ public class UserPicServiceTest {
 			e1.printStackTrace();
 		}
 		
-		Assert.assertNotNull(file);
+		Assert.assertNotNull(userPic);
 		
 	}
 }
